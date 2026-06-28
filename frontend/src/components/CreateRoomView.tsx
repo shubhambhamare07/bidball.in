@@ -23,7 +23,7 @@ interface CreateRoomViewProps {
 export default function CreateRoomView({ onBack, onCreateRoom }: CreateRoomViewProps) {
   const [displayName, setDisplayName] = useState("");
   const [roomName, setRoomName] = useState("");
-  const [budget, setBudget] = useState(500000000); // 500M Euros
+  const [budget, setBudget] = useState(1000000000); // 1B Euros default
   const [timer, setTimer] = useState(30); // 30s default
   const [boostsEnabled, setBoostsEnabled] = useState(true);
   const [transfersEnabled, setTransfersEnabled] = useState(true);
@@ -31,6 +31,9 @@ export default function CreateRoomView({ onBack, onCreateRoom }: CreateRoomViewP
   const [poolSelection, setPoolSelection] = useState("Elite Nations (12)");
 
   const formatSliderValue = (val: number) => {
+    if (val >= 1000000000) {
+      return `€${(val / 1000000000).toFixed(1).replace(".0", "")}B`;
+    }
     return `€${val / 1000000}M`;
   };
 
@@ -123,16 +126,16 @@ export default function CreateRoomView({ onBack, onCreateRoom }: CreateRoomViewP
             </div>
             <input
               type="range"
-              min="100000000"
-              max="1000000000"
+              min="500000000"
+              max="2000000000"
               step="50000000"
               value={budget}
               onChange={(e) => setBudget(Number(e.target.value))}
               className="w-full accent-[#00E676] bg-[#1A2129] h-2 rounded-lg cursor-pointer"
             />
             <div className="flex items-center justify-between text-[10px] text-[rgba(255,255,255,0.3)]">
-              <span>€100M</span>
-              <span>€1B</span>
+              <span>€500M</span>
+              <span>€2B</span>
             </div>
           </div>
 

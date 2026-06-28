@@ -34,7 +34,7 @@ export default function AuctionView({
 }: AuctionViewProps) {
   const [activeTab, setActiveTab] = useState<"bids" | "chat">("bids");
   const [inputText, setInputText] = useState("");
-  const feedEndRef = useRef<HTMLDivElement>(null);
+  const feedContainerRef = useRef<HTMLDivElement>(null);
   
   // Find current user profile
   const me = playersList.find((p) => p.name === currentUsername);
@@ -71,8 +71,10 @@ export default function AuctionView({
 
   // Scroll bids/chat log
   useEffect(() => {
-    feedEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [chatMessages, highestBid]);
+    if (feedContainerRef.current) {
+      feedContainerRef.current.scrollTop = feedContainerRef.current.scrollHeight;
+    }
+  }, [chatMessages, highestBid, activeTab]);
 
   // Filter bid messages
   const bidMessages = chatMessages.filter(m => m.type === "bid" || m.sender === "System");
@@ -345,7 +347,10 @@ export default function AuctionView({
           </div>
 
           {/* Feed Contents */}
-          <div className="flex-1 overflow-y-auto pr-1 flex flex-col gap-2.5 text-xs pb-4">
+          <div 
+            ref={feedContainerRef}
+            className="flex-1 overflow-y-auto pr-1 flex flex-col gap-2.5 text-xs pb-4"
+          >
             {activeTab === "bids" ? (
               bidMessages.map((msg, idx) => (
                 <div key={idx} className="bg-[#1A2129]/40 border border-[rgba(255,255,255,0.03)] px-3 py-2 rounded-lg text-white/50 text-[11px] leading-relaxed text-center">
@@ -371,7 +376,6 @@ export default function AuctionView({
                   );
                 })
             )}
-            <div ref={feedEndRef} />
           </div>
 
           {/* Input Form */}

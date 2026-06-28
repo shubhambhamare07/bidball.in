@@ -26,7 +26,7 @@ export default function LobbyView({
   onSendMessage,
 }: LobbyViewProps) {
   const [inputText, setInputText] = useState("");
-  const chatEndRef = useRef<HTMLDivElement>(null);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
   
   // Find current user's profile
   const me = room.players.find((p) => p.name === currentUsername);
@@ -39,7 +39,9 @@ export default function LobbyView({
 
   // Scroll to bottom of chat on new message
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+    }
   }, [chatMessages]);
 
   const handleSend = (e: React.FormEvent) => {
@@ -237,7 +239,10 @@ export default function LobbyView({
           </div>
 
           {/* Chat Feed Messages */}
-          <div className="flex-1 overflow-y-auto pr-1 flex flex-col gap-2.5 text-xs pb-4">
+          <div 
+            ref={chatContainerRef}
+            className="flex-1 overflow-y-auto pr-1 flex flex-col gap-2.5 text-xs pb-4"
+          >
             {chatMessages.map((msg, idx) => {
               if (msg.sender === "System") {
                 return (
@@ -260,7 +265,6 @@ export default function LobbyView({
                 </div>
               );
             })}
-            <div ref={chatEndRef} />
           </div>
 
           {/* Chat Form */}
