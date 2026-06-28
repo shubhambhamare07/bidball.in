@@ -167,15 +167,15 @@ export default function FinalizedView({
   // Copy result sharing text
   const handleCopyResultLink = () => {
     audio.playPop();
-    const shareText = `🏆 I just won the Global Football Auction 2026! Can you build a better squad than mine? Play here: https://football-auction-2026.vercel.app`;
+    const shareText = `🏆 I just won the Bidball Football Auction! Can you build a better squad than mine? Play here: https://bidball.vercel.app`;
     navigator.clipboard.writeText(shareText);
     setCopiedLink(true);
     setTimeout(() => setCopiedLink(false), 2000);
   };
 
   // Social sharing links
-  const twitterShare = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`🏆 I finished Rank #${rank} in Global Football Auction 2026! Can you beat my squad? My stats: ${avgOvr} OVR, ${totalFantasy} PTS. Play now: `)}&url=${encodeURIComponent("https://football-auction-2026.vercel.app")}`;
-  const whatsappShare = `https://api.whatsapp.com/send?text=${encodeURIComponent(`🏆 I just won the Global Football Auction 2026! Can you build a better squad than mine? Play here: https://football-auction-2026.vercel.app`)}`;
+  const twitterShare = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`🏆 I finished Rank #${rank} in Bidball Football Auction! Can you beat my squad? My stats: ${avgOvr} OVR, ${totalFantasy} PTS. Play now: `)}&url=${encodeURIComponent("https://bidball.vercel.app")}`;
+  const whatsappShare = `https://api.whatsapp.com/send?text=${encodeURIComponent(`🏆 I just won the Bidball Football Auction! Can you build a better squad than mine? Play here: https://bidball.vercel.app`)}`;
 
   // System Share Sheet API
   const handleSystemShare = async () => {
@@ -183,9 +183,9 @@ export default function FinalizedView({
     if (navigator.share) {
       try {
         await navigator.share({
-          title: "Global Football Auction 2026",
-          text: `🏆 I placed Rank #${rank} in Global Football Auction 2026! Can you beat my squad?`,
-          url: "https://football-auction-2026.vercel.app"
+          title: "Bidball - Football Auction",
+          text: `🏆 I placed Rank #${rank} in Bidball Football Auction! Can you beat my squad?`,
+          url: "https://bidball.vercel.app"
         });
       } catch (err) {
         console.log("System share failed, calling copy link", err);
@@ -409,7 +409,7 @@ export default function FinalizedView({
       {/* Footer Area */}
       <footer className="relative z-20 py-4 border-t border-white/10 flex justify-between items-center mt-3">
         <div className="flex flex-col">
-          <p className="font-bold text-[#6bff83] tracking-tight text-[9px]">football-auction-2026.vercel.app</p>
+          <p className="font-bold text-[#6bff83] tracking-tight text-[9px]">bidball.vercel.app</p>
           <p className="text-[7px] text-white/30 font-black uppercase mt-0.5 tracking-wider">
             © 2026 WORLD DRAFT LEAGUE PRO • ALL RIGHTS RESERVED
           </p>

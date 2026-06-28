@@ -13,22 +13,33 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Football Auction 2026",
-  description: "Real-time Multiplayer World Cup Football Auction Game",
+  metadataBase: new URL("https://bidball.vercel.app"),
+  title: "bidball.vercel.app",
+  description: "Real-time multiplayer football auction game. Build your dream squad, outbid your rivals, and become the ultimate football manager.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/logo.jpg",
+    apple: "/logo.jpg",
   },
   openGraph: {
-    title: "Football Auction 2026",
-    description: "Real-time Multiplayer World Cup Football Auction Game",
+    title: "bidball.vercel.app",
+    description: "Real-time multiplayer football auction game. Build your dream squad, outbid your rivals, and become the ultimate football manager.",
     type: "website",
     locale: "en_US",
-    siteName: "Football Auction 2026",
+    siteName: "bidball.vercel.app",
+    images: [
+      {
+        url: "/logo.jpg",
+        width: 1024,
+        height: 1024,
+        alt: "bidball.vercel.app Logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Football Auction 2026",
-    description: "Real-time Multiplayer World Cup Football Auction Game",
+    title: "bidball.vercel.app",
+    description: "Real-time multiplayer football auction game. Build your dream squad, outbid your rivals, and become the ultimate football manager.",
+    images: ["/logo.jpg"],
   },
 };
 
