@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
 @import "tailwindcss";
 
 @layer base {
@@ -457,4 +458,39 @@
 
 .rotate-y-0 {
   transform: rotateY(0deg);
+}
+
+/* Share Card Styles */
+.glass-tier-1 {
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.glass-tier-2 {
+  background: rgba(255, 255, 255, 0.07) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.gold-glow {
+  text-shadow: 0 0 20px rgba(233, 195, 73, 0.5);
+}
+.gold-gradient {
+  background: linear-gradient(135deg, #ffe088 0%, #e9c349 50%, #775e00 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+.fut-badge {
+  background: linear-gradient(135deg, #31353b 0%, #101419 100%) !important;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+  border: 2px solid #e9c349 !important;
+}
+.pitch-lines {
+  background-image: radial-gradient(circle at center, rgba(255,255,255,0.1) 1px, transparent 1px) !important;
+  background-size: 40px 40px;
+}
+.flare {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
 }

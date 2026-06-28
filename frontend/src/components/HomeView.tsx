@@ -72,7 +72,7 @@ export default function HomeView({ onCreateRoomClick, onJoinRoomClick }: HomeVie
           transition={{ duration: 0.5 }}
           className="bg-white/5 border border-white/10 rounded-full px-4 py-1.5 text-xs font-bold text-white/70 uppercase tracking-widest mb-6 flex items-center gap-2 backdrop-blur-md shadow-lg"
         >
-          <Trophy className="w-3.5 h-3.5 text-[#FFD700] animate-bounce" /> FIFA World Cup 2026 Edition
+          <Trophy className="w-3.5 h-3.5 text-[#FFD700] animate-bounce" /> World Cup 2026 Edition
         </motion.div>
 
         {/* Main Title */}

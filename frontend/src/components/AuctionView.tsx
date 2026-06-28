@@ -261,6 +261,7 @@ export default function AuctionView({
   const feedContainerRef = useRef<HTMLDivElement>(null);
 
   const [revealState, setRevealState] = useState<'back' | 'flipping' | 'front'>('back');
+  const [renderedPlayerName, setRenderedPlayerName] = useState<string | null>(null);
 
   useEffect(() => {
     if (player) {
@@ -270,6 +271,7 @@ export default function AuctionView({
       }, 350);
       const t2 = setTimeout(() => {
         setRevealState('front');
+        setRenderedPlayerName(player.name);
         audio.playPop();
       }, 750);
       return () => {
@@ -278,8 +280,11 @@ export default function AuctionView({
       };
     } else {
       setRevealState('back');
+      setRenderedPlayerName(null);
     }
   }, [player?.name]);
+
+  const shouldShowFront = player && (player.name === renderedPlayerName) && (revealState === 'front');
 
   // Play alert ticks in last 5 seconds
   useEffect(() => {
@@ -441,7 +446,7 @@ export default function AuctionView({
               <div 
                 className="w-full h-full duration-700 transform-style-3d transition-transform"
                 style={{
-                  transform: revealState === 'front' ? 'rotateY(0deg)' : 'rotateY(180deg)'
+                  transform: shouldShowFront ? 'rotateY(0deg)' : 'rotateY(180deg)'
                 }}
               >
                 

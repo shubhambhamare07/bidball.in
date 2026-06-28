@@ -14,13 +14,13 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Football Auction 2026",
-  description: "Real-time Multiplayer FIFA World Cup Auction Game",
+  description: "Real-time Multiplayer World Cup Football Auction Game",
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
     title: "Football Auction 2026",
-    description: "Real-time Multiplayer FIFA World Cup Auction Game",
+    description: "Real-time Multiplayer World Cup Football Auction Game",
     type: "website",
     locale: "en_US",
     siteName: "Football Auction 2026",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Football Auction 2026",
-    description: "Real-time Multiplayer FIFA World Cup Auction Game",
+    description: "Real-time Multiplayer World Cup Football Auction Game",
   },
 };
 
