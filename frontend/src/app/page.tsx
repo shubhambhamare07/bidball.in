@@ -347,6 +347,41 @@ export default function Page() {
   // Get current user's profile to display budget in header
   const myProfile = room?.players.find((p) => p.name === username);
 
+  const isMaintenance = process.env.NEXT_PUBLIC_MAINTENANCE_MODE === "true";
+
+  if (isMaintenance) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-[#0D0F12] text-white p-6 relative overflow-hidden select-none">
+        {/* Background Atmosphere */}
+        <div style={{ position: "absolute", top: "-150px", left: "-150px", width: "700px", height: "700px", borderRadius: "50%", background: "radial-gradient(circle, rgba(255, 215, 0, 0.04) 0%, transparent 70%)", pointerEvents: "none", zIndex: 1 }} />
+        <div style={{ position: "absolute", bottom: "-150px", right: "-150px", width: "700px", height: "700px", borderRadius: "50%", background: "radial-gradient(circle, rgba(0, 230, 118, 0.03) 0%, transparent 70%)", pointerEvents: "none", zIndex: 1 }} />
+        <div className="pitch-lines" style={{ position: "absolute", inset: 0, opacity: 0.1, pointerEvents: "none", zIndex: 1 }} />
+
+        <div className="relative z-10 text-center max-w-md flex flex-col items-center">
+          <span className="material-symbols-outlined text-[#FFD700] text-6xl font-bold mb-6" style={{ fontVariationSettings: "'FILL' 1" }}>construction</span>
+          
+          <h1 className="text-4xl md:text-5xl font-black tracking-tight text-white uppercase leading-none mb-4">
+            STADIUM CLOSED
+          </h1>
+          <p className="text-[#00E676] text-xs font-black tracking-widest uppercase mb-6">
+            Pitch Maintenance in Progress
+          </p>
+          
+          <p className="text-white/60 text-sm font-medium leading-relaxed mb-8">
+            We are currently rolling the grass and checking the spotlights to make sure the next tournament draft runs smoothly. BidBall will be back online shortly.
+          </p>
+
+          <div className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 flex items-center justify-center gap-3">
+            <span className="material-symbols-outlined text-[#00E676] animate-spin">autorenew</span>
+            <span className="text-[10px] text-white/50 font-black uppercase tracking-wider">
+              Auto-checking stadium status...
+            </span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-[#0D0F12]">
       {/* Header */}
