@@ -367,8 +367,14 @@ export default function Page() {
           >
             {currentView === "home" && (
               <HomeView
-                onCreateRoomClick={() => setCurrentView("create")}
-                onJoinRoomClick={() => setCurrentView("join")}
+                onCreateRoomClick={() => {
+                  setCurrentView("create");
+                  if (!socket.connected) socket.connect();
+                }}
+                onJoinRoomClick={() => {
+                  setCurrentView("join");
+                  if (!socket.connected) socket.connect();
+                }}
               />
             )}
 

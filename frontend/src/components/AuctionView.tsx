@@ -411,7 +411,7 @@ export default function AuctionView({
             className={`w-80 h-[480px] rounded-3xl p-6 ${tierStyles.border} ${tierStyles.glow} ${countryStyles.textColor} premium-collectible-card animate-card-entrance flex flex-col relative overflow-hidden group select-none`}
           >
             {/* Card Glassmorphic Shell */}
-            <div className="absolute inset-0 bg-slate-950/45 backdrop-blur-[2.5px] z-1" />
+            <div className="absolute inset-0 bg-slate-950/25 backdrop-blur-[2.5px] z-1" />
             
             {/* Card Shards polygonal overlay */}
             <div className="card-shards-overlay z-2" />

@@ -145,7 +145,7 @@
   100% {
     opacity: 1;
     transform: scale(1) rotateY(0) translateY(0);
-    filter: brightness(1) contrast(1) blur(0px);
+    filter: brightness(1.15) contrast(1.05) blur(0px);
   }
 }
 
